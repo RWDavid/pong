@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ui/HUDFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://ui/windows_command_prompt.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://menus/FinalScreen/FinalScreen.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.588235 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 120
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="FinalScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = -1.0
+margin_right = 1.0
+margin_bottom = -1.0
+custom_constants/separation = 60
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResultMessage" type="Label" parent="VBoxContainer"]
+margin_top = 136.0
+margin_right = 1024.0
+margin_bottom = 242.0
+custom_fonts/font = SubResource( 2 )
+text = "You Win!"
+align = 1
+
+[node name="Options" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 302.0
+margin_right = 1024.0
+margin_bottom = 375.0
+custom_constants/separation = 75
+alignment = 1
+
+[node name="NewRoundButton" type="Button" parent="VBoxContainer/Options"]
+margin_left = 240.0
+margin_right = 555.0
+margin_bottom = 73.0
+custom_fonts/font = ExtResource( 1 )
+text = "New Round"
+flat = true
+
+[node name="ExitButton" type="Button" parent="VBoxContainer/Options"]
+margin_left = 630.0
+margin_right = 784.0
+margin_bottom = 73.0
+custom_fonts/font = ExtResource( 1 )
+text = "Exit"
+flat = true
+[connection signal="pressed" from="VBoxContainer/Options/NewRoundButton" to="." method="_on_NewRoundButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options/ExitButton" to="." method="_on_ExitButton_pressed"]

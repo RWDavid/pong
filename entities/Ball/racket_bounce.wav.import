@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/racket_bounce.wav-6fe07f392e52355b60086f5b6250293b.sample"
+
+[deps]
+
+source_file="res://entities/Ball/racket_bounce.wav"
+dest_files=[ "res://.import/racket_bounce.wav-6fe07f392e52355b60086f5b6250293b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

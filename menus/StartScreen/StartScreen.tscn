@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ui/HUDFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://ui/windows_command_prompt.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://menus/StartScreen/StartScreen.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.588235 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 120
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="StartScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = -1.0
+margin_right = 1.0
+margin_bottom = -1.0
+custom_constants/separation = 100
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Greeting" type="Label" parent="VBoxContainer"]
+margin_top = 116.0
+margin_right = 1024.0
+margin_bottom = 222.0
+custom_fonts/font = SubResource( 2 )
+text = "Pong"
+align = 1
+
+[node name="Options" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 322.0
+margin_right = 1024.0
+margin_bottom = 395.0
+custom_constants/separation = 75
+alignment = 1
+
+[node name="StartButton" type="Button" parent="VBoxContainer/Options"]
+margin_left = 304.0
+margin_right = 491.0
+margin_bottom = 73.0
+custom_fonts/font = ExtResource( 1 )
+text = "Start"
+flat = true
+
+[node name="ExitButton" type="Button" parent="VBoxContainer/Options"]
+margin_left = 566.0
+margin_right = 720.0
+margin_bottom = 73.0
+custom_fonts/font = ExtResource( 1 )
+text = "Exit"
+flat = true
+[connection signal="pressed" from="VBoxContainer/Options/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options/ExitButton" to="." method="_on_ExitButton_pressed"]
